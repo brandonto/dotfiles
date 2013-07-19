@@ -1,4 +1,3 @@
-====================================================
 Brandon To's dotfiles
 ====================================================
 
@@ -7,6 +6,6 @@ If git is not installed yet:
 
 Instructions:
 1. git clone https://github.com/brandonto/dotfiles
-2. ./setup.sh
+2. ./dotfiles/setup.sh
 
 Enjoy!
