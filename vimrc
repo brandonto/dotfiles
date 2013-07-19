@@ -8,10 +8,12 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""Compatibility""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""General options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible	"disable Vi compatibility mode
+set backspace=2		"allows backspace to back over lines
+set undolevels=100	"allows more room for error
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""Display options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -23,6 +25,7 @@ syntax enable             " enable syntax highlighting (previously syntax on).
 colorscheme desert        " set colorscheme
 set number                " show line numbers
 set laststatus=2          " last window always has a statusline
+set ruler                 " Always show info along bottom.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""Searching options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -31,7 +34,6 @@ set laststatus=2          " last window always has a statusline
 set nohlsearch            " Don't continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
 set ignorecase            " Make searches case-insensitive.
-set ruler                 " Always show info along bottom.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""Indenting options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
