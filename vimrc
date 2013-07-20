@@ -1,9 +1,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"											"
-"				Brandon To's vim dotfiles				"
-"			URL: https://github.com/brandonto/dotfiles			"
-"											"
+"                                           											"
+"				Brandon To's vim dotfiles		                                		"
+"			URL: https://github.com/brandonto/dotfiles		                        	"
+"										                                            	"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -11,9 +11,9 @@
 """"""""General options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set nocompatible	"disable Vi compatibility mode
-set backspace=2		"allows backspace to back over lines
-set undolevels=100	"allows more room for error
+set nocompatible	    "disable Vi compatibility mode
+set backspace=2	    	"allows backspace to back over lines
+set undolevels=100	    "allows more room for error
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""Display options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -26,6 +26,11 @@ colorscheme desert        " set colorscheme
 set number                " show line numbers
 set laststatus=2          " last window always has a statusline
 set ruler                 " Always show info along bottom.
+
+" Highlights white spaces at the end of lines in red
+autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
+autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
+highlight EOLWS ctermbg=red guibg=red
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""Searching options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
