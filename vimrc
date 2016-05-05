@@ -13,8 +13,21 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible	    "disable Vi compatibility mode
+filetype off
 set backspace=2	    	"allows backspace to back over lines
 set undolevels=100	    "allows more room for error
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""Vundle packages set up - comment out on windows""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"
+"Plugin 'christoomey/vim-tmux-navigator'
+"
+"call vundle#end()
+"filetype plugin indent on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""Display options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -66,6 +79,17 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""Tmux options"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:tmux_navigator_no_mappings = 1
+"nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
+"nnoremap <silent> {Down-mapping} :TmuxNavigateDown<cr>
+"nnoremap <silent> {Up-mapping} :TmuxNavigateUp<cr>
+"nnoremap <silent> {Right-mapping} :TmuxNavigateRight<cr>
+"nnoremap <silent> {Previous-mapping} :TmuxNavigatePrevious<cr>
+"let g:tmux_navigator_save_on_switch = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""Mapping options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
