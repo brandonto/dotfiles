@@ -3,4 +3,5 @@ tmux new-session -d 'vim'
 tmux split-window -v
 tmux resize-pane -D 20
 tmux split-window -h
+tmux set-window-option mode-keys vi
 tmux -2 attach-session -d #-2 option for 256 colors
