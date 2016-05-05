@@ -1,7 +1,9 @@
 #!/bin/bash
-tmux new-session -d 'vim'
-tmux split-window -v
-tmux resize-pane -D 20
-tmux split-window -h
-tmux set-window-option mode-keys vi
-tmux -2 attach-session -d #-2 option for 256 colors
+if ! tmux ls | grep -q tmux-start; then
+    tmux new-session -s 'tmux-start' -d 'vim'
+    tmux split-window -v
+    tmux resize-pane -D 20
+    tmux split-window -h
+    tmux set-window-option mode-keys vi
+fi
+tmux -2 attach-session -t 'tmux-start' #-2 option for 256 colors
