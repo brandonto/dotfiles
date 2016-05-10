@@ -1,14 +1,11 @@
 #!/bin/bash
 if ! tmux ls | grep -q tmux-start; then
-    #tmux new-session -s 'tmux-start' -d 'vim'
     tmux new-session -s 'tmux-start' -d
     tmux split-window -v
     tmux resize-pane -D 15
     tmux split-window -h
-    tmux set-window-option mode-keys vi
     tmux new-window
     tmux split-window -h
-    tmux set-window-option mode-keys vi
     tmux previous-window
     tmux select-pane -U
 fi
