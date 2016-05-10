@@ -102,6 +102,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # easy access to tmux-start
 alias tmux-start="~/dotfiles/tmux-start"
 
+# 256 color mode
+alias tmux="tmux -2"
+
 # use vim
 alias vi="/usr/bin/vim"
 
