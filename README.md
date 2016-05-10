@@ -1,11 +1,13 @@
 Brandon To's dotfiles
 ====================================================
 
-If git is not installed yet:
-0. sudo apt-get install git
+Installing:
 
-Instructions:
 1. git clone https://github.com/brandonto/dotfiles
+
 2. ./dotfiles/setup.sh
 
 Enjoy!
+
+NOTE: May need to run dos2unix on the files if installing on cygwin
+
