@@ -1,10 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                           											"
-"				Brandon To's vim dotfiles		                                		"
-"			URL: https://github.com/brandonto/dotfiles		                        	"
-"			http://vim.wikia.com/wiki/File_format
-"										                                            	"
+"                                                                                       "
+"                               Brandon To's vim dotfiles                               "
+"                       URL: https://github.com/brandonto/dotfiles                      "
+"                         http://vim.wikia.com/wiki/File_format                         "
+"                                                                                       "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -12,23 +12,23 @@
 """"""""General options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set nocompatible	    "disable Vi compatibility mode
+set nocompatible                  "disable Vi compatibility mode
 filetype off
-set backspace=2	    	"allows backspace to back over lines
-set undolevels=100	    "allows more room for error
+set backspace=2                   "allows backspace to back over lines
+set undolevels=100                "allows more room for error
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""Vundle packages set up - comment out on windows""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-"
-"Plugin 'VundleVim/Vundle.vim'
-"Plugin 'christoomey/vim-tmux-navigator'
-"
-"call vundle#end()
-"filetype plugin indent on
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+
+call vundle#end()
+filetype plugin indent on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""Display options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -101,3 +101,24 @@ nmap <F1> <ESC>
 noremap <F1> <ESC>
 
 set mouse=a
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""Utility Functions""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! s:ExecuteInShell(command)
+  let command = join(map(split(a:command), 'expand(v:val)'))
+  let winnr = bufwinnr('^' . command . '$')
+  silent! execute  winnr < 0 ? 'botright new ' . fnameescape(command) : winnr . 'wincmd w'
+  setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap number
+  echo 'Execute ' . command . '...'
+  silent! execute 'silent %!'. command
+  silent! execute 'resize ' . line('$')
+  silent! redraw
+  silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
+  silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . command . ''')<CR>'
+  echo 'Shell command ' . command . ' executed.'
+endfunction
+command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
+
+ca shell Shell
