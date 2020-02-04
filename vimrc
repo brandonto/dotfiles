@@ -93,6 +93,23 @@ set splitright
 "let g:tmux_navigator_save_on_switch = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""Folding options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" zM - close all folds
+" zm - close one fold level
+" zO - open all folds
+" zo - open one fold level
+" za - toggle one fold level
+" zf - fold marker
+
+set foldmethod=syntax
+au FileType python setlocal foldmethod=indent
+set foldnestmax=20
+set nofoldenable
+set foldlevel=20
+set foldopen-=search
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""Mapping options""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -100,7 +117,14 @@ inoremap <F1> <ESC>
 nmap <F1> <ESC>
 noremap <F1> <ESC>
 
-set mouse=a
+"set mouse=a
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""":Man <man-page> or shift+k"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+runtime ftplugin/man.vim " Enable :Man <man-page>
+set keywordprg=:Man      " shift+k to open manual for word under cursor
+ca man Man
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""Utility Functions""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
