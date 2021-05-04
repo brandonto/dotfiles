@@ -16,7 +16,10 @@ set nocompatible                  "disable Vi compatibility mode
 filetype off
 set backspace=2                   "allows backspace to back over lines
 set undolevels=100                "allows more room for error
-
+set visualbell
+silent !mkdir ~/.vim/backup > /dev/null 2>&1
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""Vundle packages set up - comment out on windows""""""""""""""""""""""""""""""""""
